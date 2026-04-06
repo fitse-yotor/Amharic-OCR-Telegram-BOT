@@ -4,14 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node init && vite",
+    "build": "node init && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "bot": "node bot/telegram-bot.js",
     "ocr:service": "python -m uvicorn python-ocr.service:app --host 127.0.0.1 --port 8000",
-    "dev:all": "concurrently -n FRONTEND,BOT -c cyan,green \"npm run dev\" \"npm run bot\"",
-    "dev:stack": "concurrently -n FRONTEND,BOT,PY_OCR -c cyan,green,magenta \"npm run dev\" \"npm run bot\" \"npm run ocr:service\""
+    "dev:all": "node init && concurrently -n FRONTEND,BOT -c cyan,green \"npm run dev\" \"npm run bot\"",
+    "dev:stack": "node init && concurrently -n FRONTEND,BOT,PY_OCR -c cyan,green,magenta \"npm run dev\" \"npm run bot\" \"npm run ocr:service\""
   },
   "dependencies": {
     "axios": "^1.14.0",
